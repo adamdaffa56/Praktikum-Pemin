@@ -98,9 +98,9 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
         ![Coba jalankan node kembali](../assets/praktikum3/9-Mencoba%20node%20lagi.png)
 
 * ### Pembuatan Routing
-    1. Lakukan pembuatan direktori routes di tingkat yang sama dengan index.js
-    2. Buatlah file book.route.js di dalamnya
-    3. Tambahkan baris kode berikut untuk fungsi getAllBooks
+    1. Melakukan pembuatan direktori routes di tingkat yang sama dengan index.js
+    2. Membuat file book.route.js di dalamnya
+    3. Menambahkan baris kode berikut untuk fungsi getAllBooks
         ```
         const router = require('express').Router();
         
@@ -112,7 +112,8 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
 
         module.exports = router;
         ```
-    4. Lakukan hal yang sama untuk getOneBook, createBook, updateBook, dan deleteBook
+        ![Membuat book.route.js dan memasukkan baris kode](../assets/praktikum3/10-Membuat%20file%20book.route.png)
+    4. Melakukan hal yang sama untuk getOneBook, createBook, updateBook, dan deleteBook
         ```
         const router = require('express').Router();
         
@@ -150,6 +151,7 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
 
         module.exports = router;
         ```
+        ![Melakukan hal yang sama untuk getOneBook, createBook, updateBook, dan deleteBook](../assets/praktikum3/11.-Lakukan%20hal%20yang%20sama%20getOneBook%20.....png)
     5. Lakukan import book.route.js pada file index.js dan tambahkan baris kode berikut
         ```
         require('dotenv').config();
@@ -173,11 +175,13 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
             console.log(`Running on port ${PORT}`);
         })
         ```
-    6. Uji salah satu endpoint dengan Postman 
+        ![Import book.route.js](../assets/praktikum3/12-Import%20book.route%20pada%20index.png)
+    6. Uji salah satu endpoint dengan Postman <br/>
+        ![Uji di postman](../assets/praktikum3/13-Uji%20menggunakan%20postman.png)
 
 * ### Pembuatan Controller
-    1. Lakukan pembuatan direktori controllers di tingkat yang sama dengan index.js
-    2. Buatlah file book.controller.js di dalamnya
+    1. Melakukan pembuatan direktori controllers di tingkat yang sama dengan index.js 
+    2. Membuat file book.controller.js di dalamnya
     3. Salin baris kode dari routes untuk fungsi getAllBooks
         ```
         function getAllBooks(req, res) {
@@ -189,8 +193,9 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
         module.exports = {
             getAllBooks,
         }
-        ```  
-    4. Lakukan hal yang sama untuk getOneBook, createBook, updateBook, dan deleteBook
+        ``` 
+        ![Membuat controller](../assets/praktikum3/14-Membuat%20book.controller.png)
+    4. Melakukan hal yang sama untuk getOneBook, createBook, updateBook, dan deleteBook
         ```
         ...
         
@@ -231,8 +236,9 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
             updateBook, //
             deleteBook //
         }
-        ```
-    5. Lakukan import book.controller.js pada file book.route.js
+        ```  
+        ![Menambahkan kode diatas](../assets/praktikum3/15.-Melakukan%20hal%20yang%20sama%20getOneBook.png)
+    5. Melakukan import book.controller.js pada file book.route.js
         ```
         const router = require('express').Router();
         const book = require('../controllers/book.controller'); //
@@ -241,7 +247,8 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
         
         module.exports = router;
         ```
-    6. Lakukan perubahan pada fungsi agar dapat memanggil fungsi dari book.controller.js
+        ![Import book.controller.js](../assets/praktikum3/16-Import%20book.controller%20ke%20book.route.png)
+    6. Melakukan perubahan pada fungsi agar dapat memanggil fungsi dari book.controller.js
         ```
         const router = require('express').Router();
         const book = require('../controllers/book.controller');
@@ -258,7 +265,9 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
      
         module.exports = router;
         ```
-    7. Lakukan pengujian kembali, pastikan response tetap sama
+        ![Merubah fungsi](../assets/praktikum3/17-Merubah%20fungsi.png)
+    7. Melakukan pengujian kembali, memastikan response tetap sama.<br/>
+        ![Melakukan pengujian kembali](../assets/praktikum3/18-Pengujian%20kembali%20postman.png)
 
 * ### Pembuatan Model
     Berikut adalah gambaran bentuk data dari modul sebelumnya <br/>
@@ -300,9 +309,178 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
         
         module.exports = mongoose.model('book', bookSchema);
         ```
+        ![Membuat model](../assets/praktikum3/19-Membuat%20model.png)
 
 * ### Operasi CRUD
-    1. Hapus semua data pada collection books
+    1. Hapus semua data pada collection books. <br/>
+        ![Menghapus data collection books](../assets/praktikum3/A-1-Menghapus%20data%20collection%20books.png)
+    2. Melakukan import book.model.js pada file book.controller.js
+        ```
+        const Book = require('../models/book.model');
+        
+        ...
+        ```
+        ![Melakukan import book.model.js](../assets/praktikum3/A-2-Melakukan%20import%20book.model.png)
+    3. Melakukan perubahan pada fungsi createBook
+        ```
+        const Book = require('../models/book.model');
+        
+        ...
+        
+        async function createBook(req, res) {
+            const book = new Book({
+                title: req.body.title,
+                author: req.body.author,
+                year: req.body.year,
+                pages: req.body.pages,
+                summary: req.body.summary,
+                publisher: req.body.publisher,
+            })
+
+            try {
+                const savedBook = await book.save();
+                res.status(200).json({
+                    message: 'membuat buku baru',
+                    book: savedBook,
+                })
+            } catch (error) {
+                res.status(500).json({
+                    message: 'kesalahan pada server',
+                    error: error.message,
+                })
+            }
+        }
+        ...
+        ```
+        ![Melakukan perubahan pada fungsi createBook](../assets/praktikum3/A-3-Melakukan%20perubahan%20createBook.png)
+    4. Membuat dua buah buku dengan data di bawah ini dengan Postman
+        ```
+        {
+            "title": "Dilan 1990",
+            "author": "Pidi Baiq",
+            "year": 2014,
+            "pages": 332,
+            "summary": "Mirea, anata wa utsukushī",
+            "publisher": "Pastel Books"
+        }
+        ```
+        ```
+        {
+            "title": "Dilan 1991",
+            "author": "Pidi Baiq",
+            "year": 2015,
+            "pages": 344,
+            "summary": "Watashi ga kare o aishite iru to ittara",
+            "publisher": "Pastel Books"
+        }
+        ```
+        ![Membuat buku 1990](../assets/praktikum3/A-4-Membuat%20buku%201990.png)
+        ![Membuat buku 1991](../assets/praktikum3/A-5-Membuat%20buku%201991.png)
+    5. Melakukan perubahan pada fungsi getAllBooks
+        ```
+        const Book = require('../models/book.model');
+        
+        async function getAllBooks(req, res) {
+            try {
+                const books = await Book.find();
+                res.status(200).json({
+                    message: 'mendapatkan semua buku',
+                    books,
+                })
+            } catch (error) {
+                res.status(500).json({
+                    message: 'kesalahan pada server',
+                    error: error.message,
+                })
+            }
+        }
+        ...
+        ```
+        ![Melakukan perubahan pada fungsi getAllBooks](../assets/praktikum3/A-6-Melakukan%20perubahan%20getAllBook.png)
+    6. Melakukan perubahan pada fungsi getOneBook
+        ```
+        const Book = require('../models/book.model');
+        
+        ...
+        
+        async function getOneBook(req, res) {
+            const id = req.params.id;
+            try {
+                const book = await Book.findById(id);
+                res.status(200).json({
+                    message: 'mendapatkan satu buku',
+                    book,
+                })
+            } catch (error) {
+                res.status(500).json({
+                    message: 'kesalahan pada server',
+                    error: error.message,
+                })
+            }
+        }
+
+        ...
+        ```
+        ![Melakukan perubahan pada fungsi getOneBook](../assets/praktikum3/A-7-Melakukan%20perubahan%20getOneBook.png)
+    7. Menampilkan semua buku dengan Postman. <br/>
+        ![Menampilkan semua buku dengan Postman.](../assets/praktikum3/A-8-Menampilkan%20semua%20buku.png)
+    8. Menampilkan buku Dilan 1990 dengan Postman. <br/>
+        ![Menampilkan buku Dilan 1990 dengan Postman.](../assets/praktikum3/A-9-Menampilkan%20dilan%201990.png)
+    9. Melakukan perubahan pada fungsi updateBook
+        ```
+        const Book = require('../models/book.model');
+        
+        ...
+        
+        async function updateBook(req, res) {
+            const id = req.params.id;
+            try {
+                const book = await Book.findByIdAndUpdate(
+                    id, req.body, { new: true }
+                )
+                res.status(200).json({
+                    message: 'memperbaharui satu buku',
+                    book,
+                })
+            } catch (error) {
+                res.status(500).json({
+                    message: 'kesalahan pada server',
+                    error: error.message,
+                })
+            }
+        }
+
+        ...
+        ```
+        ![Melakukan perubahan pada fungsi updateBook](../assets/praktikum3/A-10-Melakukan%20perubahan%20updateBook.png)
+    10. Mengubah judul buku Dilan 1991 menjadi “<NAMA PANGGILAN> 1991” dengan Postman. <br/>
+        ![Mengubah judul buku Dilan 1991 menjadi “<NAMA PANGGILAN> 1991”](../assets/praktikum3/A-11-Ubah%20judul.png)
+    11. Melakukan perubahan pada fungsi deleteBook
+        ```
+        const Book = require('../models/book.model');
+        
+        ...
+        
+        async function deleteBook(req, res) {
+            const id = req.params.id;
+            try {
+                const book = await Book.findByIdAndDelete(id);
+                res.status(200).json({
+                    message: 'menghapus satu buku',
+                    book,
+                })
+            } catch (error) {
+                res.status(500).json({
+                    message: 'kesalahan pada server',
+                    error: error.message,
+                })
+            }
+        }
+        ...
+        ```
+        ![Melakukan perubahan pada fungsi deleteBook](../assets/praktikum3/A-12-Melakukan%20perubahan%20pada%20deleteBook.png)
+    12. Menghapus buku Dilan 1990 dengan Postman. <br/>
+        ![Menghapus buku Dilan 1990 dengan Postman.](../assets/praktikum3/A-13-Menghapus%20dilan%201990.png)
    
     
 
