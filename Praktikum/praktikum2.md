@@ -25,14 +25,24 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
     ![Menghapus buku "I Am a Cat"](../assets/praktikum2/A_7_Delete%20I%20Am%20a%20Cat.png)
 
 * ### MongoDB Shell
-    1. Melakukan koneksi ke MongoDB Server dengan menjalankan command ```mongosh```.
-    2. Mencoba melihat list database yang ada di server dengan menjalankan command ```show dbs```. Serta mencoba menjalankan beberapa command seperti gambar dibawah.
-    3. Melakukan insert buku “Overlord I” dengan menggunakan command ```db.books.insertOne(<data kalian>)```.
-    4. Melakukan insert buku “The Setting Sun” dan “Hujan” dengan insert many dengan menggunakan command ```db.books.insertMany(<data kalian>)```.
-    5. Melakukan pencarian buku dengan menggunakan command ```db.books.find()``` untuk melakukan pencarian semua buku.
-    6. Menampilkan seluruh buku dengan author “Osamu Dazai” dengan mengisi argument pada find() dengan menggunakan command ```db.books.find({<filter yang ingin diisi>})```.
-    7. Merubah summary pada buku “Hujan” menjadi “Buku yang bagus (<NAMA>,<NIM>) dengan mengunakan command ```db.books.updateOne({<filter>}, {$set: {<data yang akan di update>}})```.
-    8. Merubah publisher menjadi “Yen Press” pada semua buku “Osamu Dazai” dengan menggunakan command ```db.books.updateMany({<filter>}, {$set: {<data yang akan di update>}})```.
-    9. Melakukan penghapusan pada buku “Overlord I” dengan menggunakan command ```db.books.deleteOne({<argument>})```.
-    10. Melakukan penghapusan pada semua buku “Osamu Dazai dengan menggunakan command ```db.books.deleteMany({<argument>})```.
+    1. Melakukan koneksi ke MongoDB Server dengan menjalankan command ```mongosh```. <br/>
+    ![Koneksi ke MongoDB Server](../assets/praktikum2/B_1_Koneksi%20ke%20MongoDB.png)
+    2. Mencoba melihat list database yang ada di server dengan menjalankan command ```show dbs```. Serta mencoba menjalankan beberapa command seperti gambar dibawah. <br/>
+    ![Melihat list database dan beberapa command](../assets/praktikum2/B_2_Melihat%20list%20database.png)
+    3. Melakukan insert buku “Overlord I” dengan menggunakan command ```db.books.insertOne(<data kalian>)```. <br/>
+    ![Melakukan insertOne buku](../assets/praktikum2/B_3_Melakukan%20Insert%20Overlord%20I.png)
+    4. Melakukan insert buku “The Setting Sun” dan “Hujan” dengan insert many dengan menggunakan command ```db.books.insertMany(<data kalian>)```. <br/>
+    ![Melakukan insertMany buku](../assets/praktikum2/B_4_Melakukan%20Insert%20Many.png)
+    5. Melakukan pencarian buku dengan menggunakan command ```db.books.find()``` untuk melakukan pencarian semua buku. <br/>
+    ![Melakukan pencarian semua buku](../assets/praktikum2/B_5_Melakukan%20perncarian%20buku.png)
+    6. Menampilkan seluruh buku dengan author “Osamu Dazai” dengan mengisi argument pada find() dengan menggunakan command ```db.books.find({<filter yang ingin diisi>})```.<br/>
+    ![Melakukan pencarian buku dengan author Osamu Dazai](../assets/praktikum2/B_6_Melakukan%20pencarian%20Osamu%20Dazai.png)
+    7. Merubah summary pada buku “Hujan” menjadi “Buku yang bagus (<NAMA>,<NIM>) dengan mengunakan command ```db.books.updateOne({<filter>}, {$set: {<data yang akan di update>}})```. <br/>
+    ![Merubah summary dari buku Hujan](../assets/praktikum2/B_7_Merubah%20Summary%20Hujan.png)
+    8. Merubah publisher menjadi “Yen Press” pada semua buku “Osamu Dazai” dengan menggunakan command ```db.books.updateMany({<filter>}, {$set: {<data yang akan di update>}})```. <br/>
+    ![Merubah publisher dari buku Osamu Dazai](../assets/praktikum2/B_8_Merubah%20Publisher%20Osamu%20Dazai.png)
+    9. Menghapus buku “Overlord I” dengan menggunakan command ```db.books.deleteOne({<argument>})```. <br/>
+    ![Menghapus buku Overlord I](../assets/praktikum2/B_9_Menghapus%20Overlord%20I.png)
+    10. Menghapus semua buku “Osamu Dazai" dengan menggunakan command ```db.books.deleteMany({<argument>})```. <br/>
+    ![Menghapus buku Osamu Dazai](../assets/praktikum2/B_10_Menghapus%20buku%20Osamu%20Dazai.png)
 
