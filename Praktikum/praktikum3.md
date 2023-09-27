@@ -1,5 +1,5 @@
 # :globe_with_meridians: Praktikum 3 : Integrasi MongoDB dan Express
-Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot pengerjaan Praktikum Modul 3 saya mengenai CRUD MongoDB.
+Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot pengerjaan Praktikum Modul 3 saya mengenai Integrasi MongoDB dan Express.
 
 ## :scroll: Dasar Teori
 * ### Express
