@@ -2,8 +2,8 @@
 Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot pengerjaan Praktikum Modul 2 saya mengenai Basic Routing & Migration.
 
 ## :footprints: Langkah Percobaan
-1. GET<br/>
-Mengunjungi file web.php pada folder routes. Kemudian tambahkan baris ini pada akhir file <br/>
+* ### GET<br/>
+    Mengunjungi file web.php pada folder routes. Kemudian tambahkan baris ini pada akhir file <br/>
     ```
     ...
 
@@ -17,8 +17,8 @@ Mengunjungi file web.php pada folder routes. Kemudian tambahkan baris ini pada a
     ```
     ![]()
 
-2. POST, PUT, PATCH, DELETE, dan OPTIONS<br/>
-Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PUT, PATCH, DELETE, dan OPTIONS pada file web.php dengan code seperti ini,
+* ### POST, PUT, PATCH, DELETE, dan OPTIONS<br/>
+    Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PUT, PATCH, DELETE, dan OPTIONS pada file web.php dengan code seperti ini,
     ```
     ...
 
@@ -39,16 +39,16 @@ Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PU
     });
     ```
     ![]()
-        a. Kita dapat menginstall ekstensi dengan membuka panel extensions lalu mencari thunder client <br/>
-        ![]()
-        b. Setelah menginstall Thunder Client, kita akan melihat logo seperti petir pada activity bar kita (sebelah kiri).<br/>
-        c. Kita dapat membuat request dengan menekan "New Request" pada ekstensi<br/>
-        d. Setelah itu kita dapat memasukkan method dan url yang dituju<br/>
-        e. Akses url yang baru saja ditambahkan pada aplikasi dengan methodnya<br/>
+    1. Kita dapat menginstall ekstensi dengan membuka panel extensions lalu mencari thunder client <br/>
+    ![]()
+    2. Setelah menginstall Thunder Client, kita akan melihat logo seperti petir pada activity bar kita (sebelah kiri).<br/>
+    3. Kita dapat membuat request dengan menekan "New Request" pada ekstensi<br/>
+    4. Setelah itu kita dapat memasukkan method dan url yang dituju<br/>
+    5. Akses url yang baru saja ditambahkan pada aplikasi dengan methodnya<br/>
 
-3. Migrasi Database<br/>
-    a. Sebelum melakukan migrasi database pastikan server database aktif kemudian pastikan sudah membuat database dengan nama `lumenapi`<br/>
-    b. Kemudian ubah konfigurasi database pada file .env menjadi seperti ini
+* ### Migrasi Database<br/>
+    1. Sebelum melakukan migrasi database pastikan server database aktif kemudian pastikan sudah membuat database dengan nama `lumenapi`<br/>
+    2. Kemudian ubah konfigurasi database pada file .env menjadi seperti ini
     ```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -57,7 +57,7 @@ Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PU
     DB_USERNAME=root
     DB_PASSWORD=<<password masing-masing>>
     ```
-    c. Setelah mengubah konfigurasi pada file .env, kita juga perlu menghidupkan beberapa library bawaan dari lumen dengan membuka file app.php pada folder bootstrap dan mengubah baris ini,
+    3. Setelah mengubah konfigurasi pada file .env, kita juga perlu menghidupkan beberapa library bawaan dari lumen dengan membuka file app.php pada folder bootstrap dan mengubah baris ini,
     ```
     //$app->withFacades();
     //$app->withEloquent();
@@ -67,12 +67,12 @@ Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PU
     $app->withFacades();
     $app->withEloquent();
     ```
-    d. Setelah itu jalankan command berikut untuk membuat file migration,
+    4. Setelah itu jalankan command berikut untuk membuat file migration,
     ```
     php artisan make:migration create_users_table # membuat migrasi untuk tabel users
     php artisan make:migration create_products_table # membuat migrasi untuk tabel products
     ```
-    e. Ubah fungsi up pada file migrasi `create_users_table`
+    5. Ubah fungsi up pada file migrasi `create_users_table`
     ```
     # sebelumnya
     ...
@@ -98,7 +98,7 @@ Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PU
     }
     ...
     ```
-    f. Ubah fungsi up pada file migrasi `create_products_table`
+    6. Ubah fungsi up pada file migrasi `create_products_table`
     ```
     # sebelumnya
     ...
@@ -127,7 +127,7 @@ Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PU
     }
     ...
     ```
-    g. Kemudian jalankan command,
+    7. Kemudian jalankan command,
     ```
     php artisan migrate
     ```
