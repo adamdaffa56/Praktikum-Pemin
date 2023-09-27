@@ -4,42 +4,42 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
 ## :footprints: Langkah Percobaan
 1. GET<br/>
 Mengunjungi file web.php pada folder routes. Kemudian tambahkan baris ini pada akhir file <br/>
-```
-...
+    ```
+    ...
 
-$router->get('/get', function () {
-    return 'GET';
-});
-```
-Setelah itu coba jalankan aplikasi dengan command,
-```
-php -S localhost:8000 -t public
-```
-![]()
+    $router->get('/get', function () {
+        return 'GET';
+    });
+    ```
+    Setelah itu coba jalankan aplikasi dengan command,
+    ```
+    php -S localhost:8000 -t public
+    ```
+    ![]()
 
 2. POST, PUT, PATCH, DELETE, dan OPTIONS<br/>
 Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PUT, PATCH, DELETE, dan OPTIONS pada file web.php dengan code seperti ini,
-```
-...
+    ```
+    ...
 
-$router->post('/post', function () {
-return 'POST';
-});
-$router->put('/put', function () {
-return 'PUT';
-});
-$router->patch('/patch', function () {
-return 'PATCH';
-});
-$router->delete('/delete', function () {
-return 'DELETE';
-});
-$router->options('/options', function () {
-return 'OPTIONS';
-});
-```
-![]()
-    a. Kita dapat menginstall ekstensi dengan membuka panel extensions lalu mencari thunder client
+    $router->post('/post', function () {
+    return 'POST';
+    });
+    $router->put('/put', function () {
+    return 'PUT';
+    });
+    $router->patch('/patch', function () {
+    return 'PATCH';
+    });
+    $router->delete('/delete', function () {
+    return 'DELETE';
+    });
+    $router->options('/options', function () {
+    return 'OPTIONS';
+    });
+    ```
+    ![]()
+        a. Kita dapat menginstall ekstensi dengan membuka panel extensions lalu mencari thunder client
     ![]()
     b. Setelah menginstall Thunder Client, kita akan melihat logo seperti petir pada activity bar kita (sebelah kiri).
     c. Kita dapat membuat request dengan menekan "New Request" pada ekstensi
