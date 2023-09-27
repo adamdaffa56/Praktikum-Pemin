@@ -40,14 +40,14 @@ Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PU
     ```
     ![]()
         a. Kita dapat menginstall ekstensi dengan membuka panel extensions lalu mencari thunder client <br/>
-    ![]()
-    b. Setelah menginstall Thunder Client, kita akan melihat logo seperti petir pada activity bar kita (sebelah kiri).
-    c. Kita dapat membuat request dengan menekan "New Request" pada ekstensi
-    d. Setelah itu kita dapat memasukkan method dan url yang dituju
-    e. Akses url yang baru saja ditambahkan pada aplikasi dengan methodnya
+        ![]()
+        b. Setelah menginstall Thunder Client, kita akan melihat logo seperti petir pada activity bar kita (sebelah kiri).<br/>
+        c. Kita dapat membuat request dengan menekan "New Request" pada ekstensi<br/>
+        d. Setelah itu kita dapat memasukkan method dan url yang dituju<br/>
+        e. Akses url yang baru saja ditambahkan pada aplikasi dengan methodnya<br/>
 
 3. Migrasi Database<br/>
-    a. Sebelum melakukan migrasi database pastikan server database aktif kemudian pastikan sudah membuat database dengan nama `lumenapi`
+    a. Sebelum melakukan migrasi database pastikan server database aktif kemudian pastikan sudah membuat database dengan nama `lumenapi`<br/>
     b. Kemudian ubah konfigurasi database pada file .env menjadi seperti ini
     ```
     DB_CONNECTION=mysql
