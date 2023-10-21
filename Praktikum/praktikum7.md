@@ -570,10 +570,10 @@ Dibawah ini merupakan langkah pengerjaan praktikum serta hasil screenshot penger
 14. Tampilkan post kedua
     ![](../assets/praktikum7/4.14.png)
 
-:bulp: 
-> Tag “jadul” yang berada pada dua post menunjukkan **satu** tag dapat berada di **banyak** post
 
-> Post “tanpamu apa artinya” yang memiliki dua tag menunjukkan **satu** post dapat memiliki banyak **tag**
+> :bulb: Tag “jadul” yang berada pada dua post menunjukkan **satu** tag dapat berada di **banyak** post
+
+> :bulb: Post “tanpamu apa artinya” yang memiliki dua tag menunjukkan **satu** post dapat memiliki banyak **tag**
 
 
     
